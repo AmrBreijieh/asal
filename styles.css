@@ -1,0 +1,697 @@
+/* basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+/* main resume container */
+.resume-wrapper {
+    max-width: 850px;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    padding-top: 120px;
+}
+
+/* header with photo and name */
+.top-header {
+    display: flex;
+    align-items: flex-start;
+    padding: 30px 30px 30px 0;
+    gap: 20px;
+
+}
+
+/* red photo box */
+.photo-box {
+    width: 180px;
+    height: 140px;
+    background-color: #e74c3c;
+    position: relative;
+    flex-shrink: 0;
+    margin-top: -60px;
+}
+
+/* white square inside photo box */
+.photo-box::after {
+    content: '';
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 113px;
+    height: 113px;
+    background-color: white;
+}
+
+.name-section {
+    flex: 1;
+}
+
+/* main name */
+.full-name {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+/* job title */
+.job-title {
+    font-size: 1.5rem;
+    color: #e74c3c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 200;
+}
+
+/* main content grid */
+.content-area {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 0;
+    align-items: start;
+}
+
+/* left side content */
+.left-side {
+    padding: 0 15px 0 30px;
+    margin-top: 55px;
+}
+
+/* right sidebar */
+.right-sidebar {
+    background-color: #f8f9fa;
+    padding: 0 30px 30px 15px;
+    margin-top: -100px;
+}
+
+/* section spacing */
+.about-section, .work-history, .education-section, .skills-area {
+    margin-bottom: 25px;
+}
+.work-history {
+    padding-top: 15px;
+}
+/* section headings */
+.section-heading {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background-color: #e8e8e8;
+    padding: 8px 12px;
+    display: block;
+    width: 100%;
+}
+
+/* Collapsible section styles */
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    background-color: #e8e8e8;
+    padding: 8px 12px;
+}
+
+.section-header:hover {
+    background-color: #d8d8d8;
+}
+
+.section-header .section-heading {
+    margin-bottom: 0;
+    background: none;
+    padding: 0;
+    flex: 1;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    color: #e74c3c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.toggle-btn:hover {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: #c0392b;
+}
+
+.toggle-btn:active {
+    transform: scale(0.95);
+}
+
+.toggle-icon {
+}
+
+.toggle-icon.rotated {
+}
+
+.about-content {
+    opacity: 1;
+}
+
+.about-content.collapsed {
+    max-height: 0;
+    opacity: 0;
+    margin-bottom: 0;
+}
+
+/* about text */
+.about-text {
+    color: #000;
+    line-height: 1.6;
+    font-weight: bold;
+}
+
+/* work entries */
+.job-entry {
+    display: flex;
+    margin-bottom: 25px;
+    position: relative;
+    align-items: flex-start;
+}
+
+/* Move controls for job entries */
+.move-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-left: 15px;
+    flex-shrink: 0;
+}
+
+.move-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 4px;
+    color: #e74c3c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+}
+
+.move-btn:hover {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: #c0392b;
+    opacity: 1;
+}
+
+.move-btn:active {
+    transform: scale(0.95);
+}
+
+.move-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.move-btn:disabled:hover {
+    background-color: transparent;
+    color: #e74c3c;
+    opacity: 0.3;
+}
+
+.move-btn svg {
+    width: 12px;
+    height: 12px;
+}
+
+.date-area {
+    display: flex;
+    align-items: flex-start;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+/* red diamond */
+.red-diamond {
+    width: 12px;
+    height: 12px;
+    background-color: #e74c3c;
+    transform: rotate(45deg);
+    margin-right: 15px;
+}
+
+.job-year {
+    font-weight: 700;
+    color: #000;
+    min-width: 80px;
+}
+
+.job-details h3 {
+    color: #000;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.company-name {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.job-desc {
+    color: #000;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: normal;
+}
+
+/* personal info */
+.personal-info {
+    padding: 0;
+    margin-bottom: 21px;
+}
+
+.personal-info .section-heading {
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    padding: 0 12px;
+    font-weight: normal;
+    color: #000;
+    position: relative;
+}
+
+.info-label {
+    font-weight: bold;
+    color: #000;
+    flex-shrink: 0;
+    width: 80px;
+}
+
+.info-value {
+    color: #000;
+    flex: 1;
+    margin-right: 10px;
+}
+
+.info-input {
+    flex: 1;
+    border: 1px solid #e74c3c;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 0.85rem;
+    font-family: inherit;
+    background: white;
+    color: #000;
+    margin-right: 10px;
+}
+
+.info-input:focus {
+    outline: none;
+    border-color: #c0392b;
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
+}
+
+.edit-btn, .save-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    color: #e74c3c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.edit-btn:hover, .save-btn:hover {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: #c0392b;
+}
+
+.edit-btn:active, .save-btn:active {
+    transform: scale(0.95);
+}
+
+.edit-btn svg, .save-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* education items */
+.edu-item {
+    margin-bottom: 20px;
+}
+
+.edu-header {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.edu-date {
+    display: flex;
+    align-items: flex-start;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.edu-date .red-diamond {
+    margin-right: 10px;
+}
+
+.edu-date .job-year {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #000;
+    min-width: 50px;
+}
+
+.edu-info {
+    flex: 1;
+}
+
+.school-name {
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.degree-name {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.edu-desc {
+    color: #000;
+    font-size: 0.85rem;
+    font-weight: normal;
+}
+
+/* skills section */
+.skill-row {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+}
+
+.skill-label {
+    color: #000;
+    font-size: 0.9rem;
+    font-weight: bold;
+    width: 100px;
+    flex-shrink: 0;
+}
+
+.skill-progress {
+    flex: 1;
+    height: 16px;
+    border: none;
+    background-color: #ddd;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Webkit browsers (Chrome, Safari) */
+.skill-progress::-webkit-progress-bar {
+    background-color: #ddd;
+}
+
+.skill-progress::-webkit-progress-value {
+    background-color: #e74c3c;
+}
+
+/* Firefox */
+.skill-progress::-moz-progress-bar {
+    background-color: #e74c3c;
+}
+
+/* Interactive cursor and hover effects */
+.skill-progress {
+}
+
+.skill-progress:hover {
+}
+
+.skill-progress:active {
+}
+
+/* skill spacer */
+.skill-spacer {
+    height: 15px;
+}
+
+/* contact footer */
+.contact-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 30px;
+    color: #000;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+/* contact icons */
+.contact-icon {
+    width: 30px;
+    height: 30px;
+    background-color: #e74c3c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+/* responsive styles */
+@media (max-width: 890px) {
+    .resume-wrapper {
+        margin: 0;
+        padding-top: 60px;
+    }
+
+    .top-header {
+        flex-direction: row;
+        text-align: left;
+        padding: 20px 20px 20px 0;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .full-name {
+        font-size: 1.8rem;
+    }
+
+    .content-area {
+        grid-template-columns: 1fr;
+    }
+
+    .right-sidebar {
+        order: -1;
+        margin-top: 0;
+        padding: 20px;
+    }
+
+    .left-side {
+        padding: 20px;
+        margin-top: 0;
+    }
+
+    .contact-footer {
+        flex-direction: row;
+        gap: 15px;
+        text-align: left;
+        padding: 15px 20px;
+        align-items: flex-start;
+    }
+
+    .job-entry {
+        flex-direction: row;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .date-area {
+        margin-right: 15px;
+    }
+}
+
+/* Interactive Progress Bar Styles */
+.interactive-progress-section {
+    margin-bottom: 25px;
+}
+
+.progress-control {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.progress-control label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #000;
+    min-width: 100px;
+    flex-shrink: 0;
+}
+
+.progress-wrapper {
+    position: relative;
+    flex: 1;
+    min-width: 150px;
+}
+
+.progress-wrapper progress {
+    width: 100%;
+    height: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ddd;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Webkit browsers (Chrome, Safari) */
+.progress-wrapper progress::-webkit-progress-bar {
+    background-color: #ddd;
+    border-radius: 10px;
+}
+
+.progress-wrapper progress::-webkit-progress-value {
+    background: linear-gradient(90deg, #e74c3c, #c0392b);
+    border-radius: 10px;
+}
+
+/* Firefox */
+.progress-wrapper progress::-moz-progress-bar {
+    background: linear-gradient(90deg, #e74c3c, #c0392b);
+    border-radius: 10px;
+}
+
+.progress-thumb {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border: 2px solid #e74c3c;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    pointer-events: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.progress-wrapper:hover .progress-thumb {
+}
+
+.progress-value {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #e74c3c;
+    min-width: 40px;
+    text-align: right;
+}
+
+/* small screens */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .resume-wrapper {
+        padding-top: 40px;
+    }
+
+    .top-header {
+        padding: 15px 15px 15px 0;
+    }
+
+    .left-side,
+    .right-sidebar {
+        padding: 15px;
+    }
+
+    .full-name {
+        font-size: 1.6rem;
+    }
+
+    .job-title {
+        font-size: 0.9rem;
+    }
+
+    .about-section, .work-history, .education-section, .skills-area {
+        margin-bottom: 25px;
+    }
+
+    .photo-box {
+        width: 100px;
+        height: 80px;
+        margin-top: -15px;
+    }
+
+    .photo-box::after {
+        width: 65px;
+        height: 65px;
+        top: 8px;
+        right: 8px;
+    }
+
+    .progress-control {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .progress-control label {
+        min-width: auto;
+    }
+
+    .progress-wrapper {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .progress-value {
+        align-self: flex-end;
+    }
+}
